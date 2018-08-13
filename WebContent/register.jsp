@@ -75,18 +75,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="account-in register-top">
 							<h2>Register</h2>
 							<div class=" account-top register">
-								<form>
+								<form action="Login?action=Reg" method="post">
 								<div> 	
 									<span>Name*</span>
-									<input type="text"> 
+									<input type="text" name="userNameReg"> 
 								</div>
 								<div> 	
 									<span>Email*</span>
-									<input type="text"> 
+									<input type="text" name="emailReg"> 
 								</div>
 								<div> 
 									<span  class="pass">Password*</span>
-									<input type="password">
+									<input type="password" name="passwordReg">
 								</div>				
 									<input type="submit" value="Submit"> 
 								</form>

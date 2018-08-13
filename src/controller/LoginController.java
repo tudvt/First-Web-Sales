@@ -43,7 +43,17 @@ session.setAttribute("userlogin", taiKhoan);
 }
 		
 	}else 
-		if(action.equals("Res")) {
+		if(action.equals("Reg")) {
+			String userNameReg = request.getParameter("userNameReg");
+			String passwordReg = request.getParameter("passwordReg");
+			String emailReg = request.getParameter("emailReg");
+			TaiKhoan taiKhoan = new TaiKhoan(userNameReg, passwordReg, null, null, null, emailReg, null, null, null, null);
+			if(new TaiKhoanDAO().add(taiKhoan)) {
+				HttpSession session = request.getSession();
+				session.setAttribute("userlogin", taiKhoan);
+			}else {
+					System.out.println("Register error!!!");
+				}
 			
 		
 	}else 
