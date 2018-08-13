@@ -1,4 +1,4 @@
-<%-- <%@page import="model.KhachHang"%> --%>
+ <%@page import="model.TaiKhoan"%> 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%-- <%KhachHang kh = (KhachHang)session.getAttribute("userlogin"); %> --%>
+<%TaiKhoan taiKhoan = (TaiKhoan)session.getAttribute("userlogin"); %>
 </head>
 <body>
 		<div class="header" id="home">	
@@ -14,12 +14,12 @@
 				<p>The quick brown <span>fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog.</span></p>	
 			</div>	
 			<ul class="header-in">
-		<%-- 		<li><a href="">Xin chào,
-				<%if(kh!=null){
-					out.print(kh.getTen());
+		<li><a href="">Xin chào,
+				<%if(taiKhoan!=null){
+					out.print(taiKhoan.getTenTaiKhoan());
 					} 
 				%>
-				</a> </li> --%>
+				</a> </li>
 				<li><a href="account.html">MY ACCOUNT</a> </li>
 				<li><a href="wishlist.html">  WISHLIST</a></li>
 				<li ><a href="contact.html" > CONTACT US</a></li>

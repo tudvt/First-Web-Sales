@@ -25,6 +25,11 @@ public TaiKhoan(String tenTaiKhoan, String matKhau, String tenKhachHang, String 
 	this.soLuotMua = soLuotMua;
 	this.role = role;
 }
+
+public TaiKhoan() {
+	super();
+}
+
 public String getTenTaiKhoan() {
 	return tenTaiKhoan;
 }
@@ -89,7 +94,7 @@ public void setRole(String role) {
 public String toString() {
 	return "TaiKhoan [tenTaiKhoan=" + tenTaiKhoan + ", matKhau=" + matKhau + ", tenKhachHang=" + tenKhachHang
 			+ ", gioiTinh=" + gioiTinh + ", soDienThoai=" + soDienThoai + ", email=" + email + ", ngaySinh=" + ngaySinh
-			+ ", diaChi=" + diaChi + ", soLuotMua=" + soLuotMua + ", role=" + role + "]";
+			+ ", diaChi=" + diaChi + ", soLuotMua=" + soLuotMua + ", role=" + role + "]"+"\n";
 }
 
 }

@@ -101,11 +101,11 @@ public class NhaCungCapDAO implements ObjectDAO {
 		System.out.println(nhaCungCapDAO.mapNhaCungCap.size());
 
 		// add object
-		nhaCungCapDAO.add(new NhaCungCap("NCC-Prada", "Prada", "Mỹ", "0987847232", "image/logoprada.jpg"));
-		System.out.println(nhaCungCapDAO.mapNhaCungCap);
-		System.out.println(nhaCungCapDAO.mapNhaCungCap.size());
-
-		// remove Object
+//		nhaCungCapDAO.add(new NhaCungCap("NCC-Prada", "Prada", "Mỹ", "0987847232", "image/logoprada.jpg"));
+//		System.out.println(nhaCungCapDAO.mapNhaCungCap);
+//		System.out.println(nhaCungCapDAO.mapNhaCungCap.size());
+//
+//		// remove Object
 		nhaCungCapDAO.remove("NCC-Prada");
 		System.out.println(nhaCungCapDAO.mapNhaCungCap);
 		System.out.println(nhaCungCapDAO.mapNhaCungCap.size());
