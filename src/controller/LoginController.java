@@ -48,7 +48,8 @@ session.setAttribute("userlogin", taiKhoan);
 		
 	}else 
 		if(action.equals("Logout")) {
-			
+			HttpSession session = request.getSession();
+			session.invalidate();
 		}
 response.sendRedirect("account.jsp");
 	}
