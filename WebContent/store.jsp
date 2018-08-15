@@ -1,3 +1,6 @@
+<%@page import="dao.SanPhamDAO"%>
+<%@page import="model.SanPham"%>
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -59,7 +62,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>		
 </head>
-<body> 
+<body>
+
+
+ <%SanPhamDAO sanPhamDAO = new SanPhamDAO(); 
+String maDanhMuc = "";
+if(request.getParameter("danhmuc")!=null){
+	maDanhMuc = request.getParameter("danhmuc");
+}
+%>
 <!--header-->
 	<div class="container">
 		<!-- header-top -->
@@ -77,197 +88,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="content-bottom store">
 					<h3>products</h3>
 					<div class="bottom-grid">
+						<%
+											for (Map.Entry<String, SanPham > key : sanPhamDAO.getListProductByCategory(maDanhMuc).entrySet())  {
+										%>
 						<div class="col-md-3 store-top">
 							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh.png" alt="" >
+								<a href="single.jsp"><img class="img-responsive" src="<%=key.getValue().getHinhAnh()%>" alt="" >
 								<div class="five">
-								<h6 class="one">-50%</h6>
+								<h6 class="one">-<%=((key.getValue().getGiaBan() - key.getValue().getGiaDaGiam())/key.getValue().getGiaBan() )*100 %>%</h6>
 								</div>
 								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
+									<p><%=key.getValue().getTen() %></p>
+									<span><%=key.getValue().getGiaDaGiam() %></span>
 									<div class="clearfix"> </div>
 								</div></a>
 								
 								
 							</div>
 						</div>
-						<div class="col-md-3 store-top">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh1.png" alt="" >
-								<div class="five">
-								<h6 >-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-3 store-top">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh2.png" alt="" >
-								<div class="five">
-								<h6 class="one1">-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-3 store-top">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh3.png" alt="" >
-								<div class="five">
-								<h6 >-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="bottom-grid">
-						<div class="col-md-3 store-top">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh4.png" alt="" >
-								<div class="five">
-								<h6 >-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-3 store-top">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh5.png" alt="" >
-								<div class="five">
-								<h6 class="one">-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-3 store-top">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh.png" alt="" >
-								<div class="five">
-								<h6 >-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-3 store-top">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh1.png" alt="" >
-								<div class="five">
-								<h6 class="one1">-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="bottom-grid">
-						<div class="col-md-3 store-top">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh2.png" alt="" >
-								<div class="five">
-								<h6 >-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-3 store-top">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh3.png" alt="" >
-								<div class="five">
-								<h6 class="one">-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-3 store-top">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh4.png" alt="" >
-								<div class="five">
-								<h6 class="one1">-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-3 store-top">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh5.png" alt="" >
-								<div class="five">
-								<h6 class="one">-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
+						
 								
 							</div>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
-				
-			</div>
+				<%} %>
+		
 
 		
 		<!---->

@@ -2,6 +2,7 @@ package model;
 
 public class SanPham {
 String maSanPham;
+
 String ten;
 double giaDaGiam;
 double giaBan;
@@ -11,8 +12,10 @@ String maLoai;
 String hinhAnh;
 int soLuongNhap;
 int soLuongBan;
+String maDanhMuc;
+
 public SanPham(String maSanPham, String ten, double giaDaGiam, double giaBan, int soLuong, String nhaCungCap,
-		String maLoai, String hinhAnh, int soLuongNhap, int soLuongBan) {
+		String maLoai, String hinhAnh, int soLuongNhap, int soLuongBan, String maDanhMuc) {
 	super();
 	this.maSanPham = maSanPham;
 	this.ten = ten;
@@ -24,12 +27,24 @@ public SanPham(String maSanPham, String ten, double giaDaGiam, double giaBan, in
 	this.hinhAnh = hinhAnh;
 	this.soLuongNhap = soLuongNhap;
 	this.soLuongBan = soLuongBan;
+	this.maDanhMuc = maDanhMuc;
 }
+
+public SanPham() {
+	super();
+}
+
 public String getMaSanPham() {
 	return maSanPham;
 }
 public void setMaSanPham(String maSanPham) {
 	this.maSanPham = maSanPham;
+}
+public String getMaDanhMuc() {
+	return maDanhMuc;
+}
+public void setMaDanhMuc(String maDanhMuc) {
+	this.maDanhMuc = maDanhMuc;
 }
 public String getTen() {
 	return ten;
@@ -85,12 +100,12 @@ public int getSoLuongBan() {
 public void setSoLuongBan(int soLuongBan) {
 	this.soLuongBan = soLuongBan;
 }
+
 @Override
 public String toString() {
 	return "SanPham [maSanPham=" + maSanPham + ", ten=" + ten + ", giaDaGiam=" + giaDaGiam + ", giaBan=" + giaBan
 			+ ", soLuong=" + soLuong + ", nhaCungCap=" + nhaCungCap + ", maLoai=" + maLoai + ", hinhAnh=" + hinhAnh
-			+ ", soLuongNhap=" + soLuongNhap + ", soLuongBan=" + soLuongBan + "]";
+			+ ", soLuongNhap=" + soLuongNhap + ", soLuongBan=" + soLuongBan + ", maDanhMuc=" + maDanhMuc + "]" +"\n";
 }
-
 
 }
