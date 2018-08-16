@@ -151,7 +151,7 @@ if(taiKhoan!=null) {
 //	System.out.println(taiKhoanDAO.mapTaiKhoan);
 //	System.out.println(taiKhoanDAO.mapTaiKhoan.size());
 //	
-	taiKhoanDAO.del("tuongtu");
+	taiKhoanDAO.del("hieu");
 	System.out.println(taiKhoanDAO.mapTaiKhoan);
 	System.out.println(taiKhoanDAO.mapTaiKhoan.size());
 	

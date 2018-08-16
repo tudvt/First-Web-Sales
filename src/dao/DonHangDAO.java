@@ -43,6 +43,7 @@ private Map<String, DonHang> loadData() {
 	
 	return mapTemp;
 }
+
 public static void main(String[] args) {
 	DonHangDAO donHangDAO= new DonHangDAO();
 	System.out.println(donHangDAO.mapDonHang);

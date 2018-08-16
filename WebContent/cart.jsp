@@ -58,6 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>		
+
 </head>
 <body> 
 <!--header-->
@@ -74,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="content">
 		<div class="check-out">
     	    <h4 class="title">Shopping cart is empty</h4>
-    	    <p class="cart-out">You have no items in your shopping cart.<br>Click<a href="index.html"> here</a> to continue shopping</p>
+    	    <p class="cart-out">You have no items in your shopping cart.<br>Click<a href="index.jsp"> here</a> to continue shopping</p>
     	</div>
 
 		</div>

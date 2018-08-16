@@ -23,7 +23,7 @@
 				<li><a href="account.html">MY ACCOUNT</a> </li>
 				<li><a href="wishlist.html">  WISHLIST</a></li>
 				<li ><a href="contact.html" > CONTACT US</a></li>
-					//nhận diện logout trên header
+				<!-- nhận diện logout trên header -->
 				<li ><a href="Login?action=Logout" >Đăng xuất</a></li>
 			</ul>
 				<div class="clearfix"> </div>
