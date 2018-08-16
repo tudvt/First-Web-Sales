@@ -1,3 +1,5 @@
+<%@page import="dao.SanPhamDAO"%>
+<%@page import="model.SanPham"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -78,6 +80,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>		
 </head>
 <body> 
+ <%SanPhamDAO sanPhamDAO = new SanPhamDAO(); 
+ SanPham sanPham= new SanPham();
+String maSanPham = "";
+if(request.getParameter("maSanPham")!=null){
+	maSanPham = request.getParameter("maSanPham");//maSanPham trên thanh url
+	sanPham=sanPhamDAO.getSanPham(maSanPham);
+}
+%>
 <!--header-->
 	<div class="container">
 		<!-- header-top -->
@@ -95,8 +105,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-5 single-top">	
 						<ul id="etalage">
 							<li>
-								<a href="optionallink.html">
-									<img class="etalage_thumb_image img-responsive" src="images/s1.jpg" alt="" >
+								<a href="optionallink.jsp">
+									<img class="etalage_thumb_image img-responsive" src="<%=sanPham.getHinhAnh()%>" alt="" >
 									<img class="etalage_source_image img-responsive" src="images/s11.jpg" alt="" >
 								</a>
 							</li>
@@ -117,13 +127,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>	
 					<div class="col-md-7 single-top-in">
 						<div class="single-para">
-							<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
+							<h4><%=sanPham.getTen() %></h4>
 							<div class="para-grid">
-								<span  class="add-to">$32.8</span>
+								<span  class="add-to"><%=sanPham.getGiaDaGiam() %></span>
 								<a href="#" class=" cart-to">Add to Cart</a>					
 								<div class="clearfix"></div>
 							 </div>
-							<h5>100 items in stock</h5>
+							<h5>Còn Lại: <%=sanPham.getSoLuong() %></h5>
 							<div class="available">
 								<h6>Available Options :</h6>
 								<ul>
@@ -417,10 +427,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3>Best Sellers</h3>
 					<div class="latest-grid">
 						<div class="news">
-							<a href="single.html"><img class="img-responsive" src="images/si.jpg" title="name" alt=""></a>
+							<a href="single.jsp"><img class="img-responsive" src="images/si.jpg" title="name" alt=""></a>
 						</div>
 						<div class="news-in">
-							<h6><a href="single.html">Product name here</a></h6>
+							<h6><a href="single.jsp">Product name here</a></h6>
 							<p>Description Lorem ipsum </p>
 							<ul>
 								<li>Price: <span>$110</span> </li><b>|</b>
@@ -431,10 +441,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="latest-grid">
 						<div class="news">
-							<a href="single.html"><img class="img-responsive" src="images/si1.jpg" title="name" alt=""></a>
+							<a href="single.jsp"><img class="img-responsive" src="images/si1.jpg" title="name" alt=""></a>
 						</div>
 						<div class="news-in">
-							<h6><a href="single.html">Product name here</a></h6>
+							<h6><a href="single.jsp">Product name here</a></h6>
 							<p>Description Lorem ipsum </p>
 							<ul>
 								<li>Price: <span>$110</span> </li><b>|</b>
@@ -445,10 +455,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="latest-grid">
 						<div class="news">
-							<a href="single.html"><img class="img-responsive" src="images/si.jpg" title="name" alt=""></a>
+							<a href="single.jsp"><img class="img-responsive" src="images/si.jpg" title="name" alt=""></a>
 						</div>
 						<div class="news-in">
-							<h6><a href="single.html">Product name here</a></h6>
+							<h6><a href="single.jsp">Product name here</a></h6>
 							<p>Description Lorem ipsum</p>
 							<ul>
 								<li>Price: <span>$110</span> </li><b>|</b>
@@ -459,10 +469,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="latest-grid">
 						<div class="news">
-							<a href="single.html"><img class="img-responsive" src="images/si1.jpg" title="name" alt=""></a>
+							<a href="single.jsp"><img class="img-responsive" src="images/si1.jpg" title="name" alt=""></a>
 						</div>
 						<div class="news-in">
-							<h6><a href="single.html">Product name here</a></h6>
+							<h6><a href="single.jsp">Product name here</a></h6>
 							<p>Description Lorem ipsum </p>
 							<ul>
 								<li>Price: <span>$110</span> </li><b>|</b>
@@ -476,15 +486,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="money">
 					<h3>Payment Options</h3>
 						<ul class="money-in">
-						<li><a href="single.html"><img class="img-responsive" src="images/p1.png" title="name" alt=""></a></li>
-						<li><a href="single.html"><img class="img-responsive" src="images/p2.png" title="name" alt=""></a></li>
-						<li><a href="single.html"><img class="img-responsive" src="images/p3.png" title="name" alt=""></a></li>
-						<li><a href="single.html"><img class="img-responsive" src="images/p4.png" title="name" alt=""></a></li>
-						<li><a href="single.html"><img class="img-responsive" src="images/p5.png" title="name" alt=""></a></li>
-						<li><a href="single.html"><img class="img-responsive" src="images/p6.png" title="name" alt=""></a></li>
-						<li><a href="single.html"><img class="img-responsive" src="images/p1.png" title="name" alt=""></a></li>
-						<li><a href="single.html"><img class="img-responsive" src="images/p4.png" title="name" alt=""></a></li>
-						<li><a href="single.html"><img class="img-responsive" src="images/p2.png" title="name" alt=""></a></li>
+						<li><a href="single.jsp"><img class="img-responsive" src="images/p1.png" title="name" alt=""></a></li>
+						<li><a href="single.jsp"><img class="img-responsive" src="images/p2.png" title="name" alt=""></a></li>
+						<li><a href="single.jsp"><img class="img-responsive" src="images/p3.png" title="name" alt=""></a></li>
+						<li><a href="single.jsp"><img class="img-responsive" src="images/p4.png" title="name" alt=""></a></li>
+						<li><a href="single.jsp"><img class="img-responsive" src="images/p5.png" title="name" alt=""></a></li>
+						<li><a href="single.jsp"><img class="img-responsive" src="images/p6.png" title="name" alt=""></a></li>
+						<li><a href="single.jsp"><img class="img-responsive" src="images/p1.png" title="name" alt=""></a></li>
+						<li><a href="single.jsp"><img class="img-responsive" src="images/p4.png" title="name" alt=""></a></li>
+						<li><a href="single.jsp"><img class="img-responsive" src="images/p2.png" title="name" alt=""></a></li>
 
 						</ul>
 					</div>

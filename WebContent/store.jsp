@@ -93,7 +93,7 @@ if(request.getParameter("danhmuc")!=null){
 										%>
 						<div class="col-md-3 store-top">
 							<div class="bottom-grid-top">
-								<a href="single.jsp"><img class="img-responsive" src="<%=key.getValue().getHinhAnh()%>" alt="" >
+								<a href="single.jsp?maSanPham=<%=key.getValue().getMaSanPham()%>"><img class="img-responsive" src="<%=key.getValue().getHinhAnh()%>" alt="" >
 								<div class="five">
 								<h6 class="one">-<%=((key.getValue().getGiaBan() - key.getValue().getGiaDaGiam())/key.getValue().getGiaBan() )*100 %>%</h6>
 								</div>
