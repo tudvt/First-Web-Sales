@@ -1,5 +1,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="model.DanhMuc"%>
+<%@page import="model.Cart"%>
+<%@page import="model.Item"%>
 <%@page import="dao.DanhMucDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -12,6 +14,13 @@
 <body>
 	<%
 		DanhMucDAO danhMucDAO = new DanhMucDAO();
+	 Cart cart = (Cart) session.getAttribute("cart");
+     if (cart == null) {
+         cart = new Cart();
+         session.setAttribute("cart", cart);
+     }
+
+ 
 	%>
 	<div class="header-bottom">
 		<div class="top-nav">
@@ -100,64 +109,39 @@
 		</div>
 		<div class="cart icon1 sub-icon1">
 			<h6>
-				Shopping Cart: <span class="item">3 items</span> <span class="rate">70$</span>
+					 <%for (Map.Entry<String, Item> list : cart.getCartItems().entrySet()) {%>
+				Shopping Cart: <span class="item"> <%=cart.countItem()%> items</span> <span class="rate"><%=cart.total() %></span>
 				<li><a href="#" class="round"> </a>
 					<ul class="sub-icon1 list">
-						<h3>Recently added items(3)</h3>
+						<h3>Recently added items(<%=cart.countItem()%>)</h3>
 						<div class="shopping_cart">
+				
 							<div class="cart_box">
 								<div class="message">
 									<div class="alert-close"></div>
 									<div class="list_img">
-										<img src="images/si.jpg" class="img-responsive" alt="">
+										<img src="<%=list.getValue().getProduct().getHinhAnh() %>" class="img-responsive" alt="">
 									</div>
 									<div class="list_desc">
 										<h4>
-											<a href="#">velit esse molestie</a>
+											<a href="CartServlet?command=remove&productID=<%=list.getValue().getProduct().getMaSanPham()%>">
+											<%=list.getValue().getProduct().getTen()%></a>
 										</h4>
-
+	<%} %>
 										<a href="#" class="offer">1 offer applied</a>
 									</div>
 									<div class="clearfix"></div>
 								</div>
+								
 							</div>
-							<div class="cart_box">
-								<div class="message1">
-									<div class="alert-close1"></div>
-									<div class="list_img">
-										<img src="images/si1.jpg" class="img-responsive" alt="">
-									</div>
-									<div class="list_desc">
-										<h4>
-											<a href="#">velit esse molestie</a>
-										</h4>
-
-										<a href="#" class="offer">1 offer applied</a>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="cart_box">
-								<div class="message2">
-									<div class="alert-close2"></div>
-									<div class="list_img">
-										<img src="images/si.jpg" class="img-responsive" alt="">
-									</div>
-									<div class="list_desc">
-										<h4>
-											<a href="#">velit esse molestie</a>
-										</h4>
-
-										<a href="#" class="offer">1 offer applied</a>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
+						
+							
 						</div>
 						<div class="check_button">
 							<a href="cart.jsp">View Cart</a>
 						</div>
 						<div class="clearfix"></div>
+					
 					</ul></li>
 			</h6>
 

@@ -1,5 +1,6 @@
 <%@page import="dao.SanPhamDAO"%>
 <%@page import="model.SanPham"%>
+<%@page import="model.Cart"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -87,6 +88,12 @@ if(request.getParameter("maSanPham")!=null){
 	maSanPham = request.getParameter("maSanPham");//maSanPham trên thanh url
 	sanPham=sanPhamDAO.getSanPham(maSanPham);
 }
+Cart cart = (Cart) session.getAttribute("cart");
+if (cart == null) {
+    cart = new Cart();
+    session.setAttribute("cart", cart);
+}
+
 %>
 <!--header-->
 	<div class="container">
@@ -126,11 +133,12 @@ if(request.getParameter("maSanPham")!=null){
 
 					</div>	
 					<div class="col-md-7 single-top-in">
+		
 						<div class="single-para">
 							<h4><%=sanPham.getTen() %></h4>
 							<div class="para-grid">
 								<span  class="add-to"><%=sanPham.getGiaDaGiam() %></span>
-								<a href="#" class=" cart-to">Add to Cart</a>					
+								<a href="CartServlet?command=plus&productID=<%=sanPham.getMaSanPham()%>" class=" cart-to">Add to Cart</a>					
 								<div class="clearfix"></div>
 							 </div>
 							<h5>Còn Lại: <%=sanPham.getSoLuong() %></h5>

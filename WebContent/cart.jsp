@@ -1,3 +1,8 @@
+<%@page import="java.util.Map"%>
+<%@page import="model.DanhMuc"%>
+<%@page import="model.Cart"%>
+<%@page import="model.Item"%>
+<%@page import="dao.DanhMucDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -61,6 +66,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body> 
+	<%
+		DanhMucDAO danhMucDAO = new DanhMucDAO();
+	 Cart cart = (Cart) session.getAttribute("cart");
+     if (cart == null) {
+         cart = new Cart();
+         session.setAttribute("cart", cart);
+     }
+
+ 
+	%>
 <!--header-->
 	<div class="container">
 		<!-- header-top -->
@@ -74,8 +89,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="content">
 		<div class="check-out">
-    	    <h4 class="title">Shopping cart is empty</h4>
-    	    <p class="cart-out">You have no items in your shopping cart.<br>Click<a href="index.jsp"> here</a> to continue shopping</p>
+    	    <h4 class="title">Here is shopping cart</h4>
+    	    
+    	    							 <%for (Map.Entry<String, Item> list : cart.getCartItems().entrySet()) {%>
+    	    		
+							<div class="cart_box">
+								<div class="message">
+									<div class="alert-close"></div>
+									<div class="list_img">
+										<img src="<%=list.getValue().getProduct().getHinhAnh() %>" class="img-responsive" alt="">
+									</div>
+									<div class="list_desc">
+										<h4>
+											<a href="CartServlet?command=remove&productID=<%=list.getValue().getProduct().getMaSanPham()%>">
+											<%=list.getValue().getProduct().getTen()%></a>
+										</h4>
+	<%} %>
+										<a href="#" class="offer">1 offer applied</a>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								
+							</div>
+    	    <p class="cart-out">You have <%=cart.countItem()%> items in your shopping cart.<br>Click<a href="index.jsp"> here</a> to continue shopping</p>
     	</div>
 
 		</div>
